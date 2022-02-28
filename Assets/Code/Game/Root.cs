@@ -14,30 +14,30 @@ public class Root : MonoBehaviour
     [SerializeField]
     private SpriteAnimationConfig _spriteAnimationConfig;
 
-    private ParalaxManager _paralaxManager;
-    private SpriteAnimator _spriteAnimator;
+    private Controllers _controllers;
+    private ParalaxController _paralaxManager;
+    private SpriteAnimatorController _spriteAnimator;
 
     private void Start()
     {
-        _paralaxManager = new ParalaxManager(_camera, _background.transform);
-
-        _spriteAnimator = new SpriteAnimator(_spriteAnimationConfig);
-        _spriteAnimator.StartAnimation(_characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._animationSpeed);
+        _controllers = new Controllers();
+        _controllers.Initialization();
+        new GameInitialisation(_controllers,_camera,_background.transform,_spriteAnimationConfig,_characterView);
     }
 
     private void Update()
     {
-        _paralaxManager.Update();
-        _spriteAnimator.Update();
+        var deltaTime = Time.deltaTime;
+        _controllers.Execute(deltaTime);
     }
 
     private void FixedUpdate()
     {
-
+        _controllers.FixedExecute(Time.fixedDeltaTime);
     }
 
     private void OnDestroy()
     {
-
+        _controllers.Cleanup();
     }
 }

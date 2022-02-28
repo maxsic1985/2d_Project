@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteAnimator 
+public class SpriteAnimatorController:IExecute
 {
-    private SpriteAnimationConfig _config;
+    private ICongig<SpriteSequence> _config;
     private Dictionary<SpriteRenderer, CustomAnimation> _activeAnimations = new Dictionary<SpriteRenderer, CustomAnimation>();
 
-    public SpriteAnimator(SpriteAnimationConfig config)
+    public SpriteAnimatorController(ICongig<SpriteSequence> config)
     {
         _config = config;
     }
@@ -43,17 +43,19 @@ public class SpriteAnimator
             _activeAnimations.Remove(sprite);
     }
 
-    public void Update()
-    {
-        foreach (var animation in _activeAnimations)
-        {
-            animation.Value.Update();
-            animation.Key.sprite = animation.Value.Sprites[(int)animation.Value.Counter];
-        }
-    }
     public void Dispose()
     {
         _activeAnimations.Clear();
     }
 
+    public void Execute(float deltaTime)
+    {
+        foreach (var animation in _activeAnimations)
+        {
+             // animation.Value.Execute(Time.deltaTime);
+             animation.Value.Update();
+
+            animation.Key.sprite = animation.Value.Sprites[(int)animation.Value.Counter];
+        }
+    }
 }
