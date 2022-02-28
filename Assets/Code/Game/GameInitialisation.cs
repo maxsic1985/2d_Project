@@ -10,9 +10,12 @@ public class GameInitialisation
 
         var paralaxManager = new ParalaxController(camera, background.transform);
         var spriteAnimator = new SpriteAnimatorController(spriteAnimationConfig);
-        spriteAnimator.StartAnimation(characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._animationSpeed);
+        var playerMoveController = new PlayerMoveController(characterView, spriteAnimator);
+        spriteAnimator.StartAnimation(characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._playerAnimationSpeed);
 
         _controllers.Add(paralaxManager);
         _controllers.Add(spriteAnimator);
+        _controllers.Add(playerMoveController);
+
     }
 }

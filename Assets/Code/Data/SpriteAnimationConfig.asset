@@ -20,13 +20,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e5d48ddba917147d4984d60c82de0138, type: 3}
     - {fileID: 21300000, guid: b7c237ced05de4c44a8337e4c9d5da9f, type: 3}
     - {fileID: 21300000, guid: 015cc9e6c3749435f8a1905cadfa8fb3, type: 3}
-  - AnimationType: 1
+  - AnimationType: 2
     Sprites:
-    - {fileID: 21300000, guid: 8b2704248651b4c8c84168c5fe44bcf2, type: 3}
-    - {fileID: 21300000, guid: 1d93796b9d2f54fc1919e13f6f19a33c, type: 3}
-    - {fileID: 21300000, guid: e6fadb97321a142be9304bddd4a6dddf, type: 3}
-    - {fileID: 21300000, guid: 5574dec732d104ed9899876e79b21125, type: 3}
-    - {fileID: 21300000, guid: b9f9b203297ca4faf905e9a37d6ed2ae, type: 3}
-    - {fileID: 21300000, guid: c1720c49a42c1419797441b6bf7366e7, type: 3}
-    - {fileID: 21300000, guid: 9750692bf14f846dba295a4de247f095, type: 3}
-    - {fileID: 21300000, guid: df829da9f5dcc433b84808a69d2fdbad, type: 3}
+    - {fileID: 21300000, guid: 7dae316cab1f54aeea0b7b52a1f0495d, type: 3}
+    - {fileID: 21300000, guid: dec23d3f1b157493ea928ad647f275c2, type: 3}
+    - {fileID: 21300000, guid: 246e0385cab41407fb2ba3829ad8fea3, type: 3}
+    - {fileID: 21300000, guid: 0d0cae25406c447e3a85ab8e195ac041, type: 3}
+    - {fileID: 21300000, guid: b0b63da2b52704d65a05fb59f335baf3, type: 3}
+    - {fileID: 21300000, guid: 35140b321bc564c93876fe5a7bb532dc, type: 3}
+  - AnimationType: 4
+    Sprites:
+    - {fileID: 21300000, guid: 7dae316cab1f54aeea0b7b52a1f0495d, type: 3}

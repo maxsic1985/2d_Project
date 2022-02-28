@@ -18,7 +18,7 @@ public class ParametrSettings : EditorWindow
 
     private void OnGUI()
     {
-        EntityData.GameSetting._animationSpeed = LabelSlider(20, ref EntityData.GameSetting._animationSpeed, ref EntityData.GameSetting._animationSpeed_max, "Animation Speed");
+        EntityData.GameSetting._playerAnimationSpeed = LabelSlider(20, ref EntityData.GameSetting._playerAnimationSpeed, ref EntityData.GameSetting._playerAnimationSpeed_max, "Animation Speed");
         EntityData.GameSetting._parallaxSpeed = LabelSlider(40, ref EntityData.GameSetting._parallaxSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "Paralax Coef");
     }
 
