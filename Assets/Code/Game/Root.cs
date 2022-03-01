@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Root : MonoBehaviour
@@ -15,7 +16,10 @@ public class Root : MonoBehaviour
     private SpriteAnimationConfig _spriteAnimationConfig;
 
     [SerializeField]
-    private Transform _cannonTransform;
+    private CannonProvider _cannonTransform;
+
+    [SerializeField]
+    private List<BulletProvider> _bullets;
 
     private Controllers _controllers;
     private ParalaxController _paralaxManager;
@@ -25,7 +29,7 @@ public class Root : MonoBehaviour
     {
         _controllers = new Controllers();
         _controllers.Initialization();
-        new GameInitialisation(_controllers,_camera,_background.transform,_spriteAnimationConfig,_characterView,_cannonTransform);
+        new GameInitialisation(_controllers,_camera,_background.transform,_spriteAnimationConfig,_characterView,_cannonTransform, _bullets);
     }
 
     private void Update()

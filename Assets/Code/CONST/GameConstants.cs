@@ -8,11 +8,12 @@ public static class GameConstants
     public const float PLAYER_WALK_SPEED = 1;
     public const float PLAYER_JUMPSTART_SPEED = 2;
     public const float PLAYER_MOVETRESH = 0.1f;
-    public const float PLAYER_FLYTRESH = 0.3f;
-    public const float GROUND_LEVEL = 0.0f;
+    public const float PLAYER_FLYTRESH = 0.1f;
+    public const float GROUND_LEVEL = -0.2f;
     public const float PLAYER_ACCELERATION = -10f;
 
-
+    public const float BULLET_RADIUS = 0.3f;
+    public const float BULLET_ACCELERATION = -10f;
 
 
 

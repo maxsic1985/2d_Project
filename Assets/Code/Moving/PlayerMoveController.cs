@@ -25,7 +25,7 @@ public class PlayerMoveController : IExecute
 
         if (IsGrounded())
         {
-            _spriteAnimator.StartAnimation(_characterView.SpriteRenderer, isGoSideWay ? AnimationType.WALK : AnimationType.IDLE, true, GameConstants.PLAYER_ANIMATION_SPEED);
+            _spriteAnimator.StartAnimation(_characterView.SpriteRenderer, isGoSideWay ? AnimationType.WALK : AnimationType.IDLE, true, EntityData.GameSetting._playerAnimationSpeed);
 
             if (doJump && Mathf.Approximately(_yVelocity, 0))
             {

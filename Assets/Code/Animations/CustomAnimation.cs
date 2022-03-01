@@ -15,7 +15,7 @@ public class CustomAnimation:IExecute
         if (Sleeps)
             return;
 
-        Counter += Time.deltaTime * AnimationSpeed;
+        Counter += Time.deltaTime * System.Math.Abs(AnimationSpeed);
 
         if (Loop)
         {

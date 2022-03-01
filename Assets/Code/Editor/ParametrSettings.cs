@@ -20,6 +20,19 @@ public class ParametrSettings : EditorWindow
     {
         EntityData.GameSetting._playerAnimationSpeed = LabelSlider(20, ref EntityData.GameSetting._playerAnimationSpeed, ref EntityData.GameSetting._playerAnimationSpeed_max, "Animation Speed");
         EntityData.GameSetting._parallaxSpeed = LabelSlider(40, ref EntityData.GameSetting._parallaxSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "Paralax Coef");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(60, ref EntityData.GameSetting._bulletAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletAcceleration");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(80, ref EntityData.GameSetting._bulletRadius, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletRadius");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(100, ref EntityData.GameSetting._playerWalkSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "_playerWalkSpeed");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(120, ref EntityData.GameSetting._playerMovingTresh, ref EntityData.GameSetting._parallaxSpeed_max, "_playerMovingTresh");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(140, ref EntityData.GameSetting._playerAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "_playerAcceleration");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(160, ref EntityData.GameSetting._jumpStartSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "_jumpStartSpeed");
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(180, ref EntityData.GameSetting._groundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "_groundLevel");
+
+
+
+
+
+
     }
 
 
@@ -39,7 +52,7 @@ public class ParametrSettings : EditorWindow
         sliderMaxValue = GetString(inStrMaxVolue);
         GUI.Label(labelRect, labelText);
         GUI.Label(labelRect3, "Max");
-        sliderValue = GUI.HorizontalSlider(sliderRect1, sliderValue, 0.0f, sliderMaxValue);
+        sliderValue = GUI.HorizontalSlider(sliderRect1, sliderValue, -10.0f, sliderMaxValue);
         inStrVolue = GUI.TextField(labelRect2, sliderValue.ToString());
         sliderValue = GetString(inStrVolue);
         GUILayout.EndHorizontal();
