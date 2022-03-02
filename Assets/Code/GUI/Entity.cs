@@ -16,10 +16,11 @@ public struct Entity
     public float _playerAcceleration;
     public float _bulletAcceleration;
     public float _bulletRadius;
+    public float _bulletGroundLevel;
 
 
-
-    public Entity (float animationSpeed, float parallaxSpeed, float animationSpeed_max, float parallaxSpeed_max, float playerMovingTresh, float playerWalkSpeed, float jumpStartSpeed, float flyTresh, float groundLevel, float playerAcceleration,float bulletRadius,float bulletAcceleration)
+    public Entity (float animationSpeed, float parallaxSpeed, float animationSpeed_max, float parallaxSpeed_max, float playerMovingTresh, float playerWalkSpeed, float jumpStartSpeed,
+        float flyTresh, float groundLevel, float playerAcceleration,float bulletRadius,float bulletAcceleration,float bulletGroundLevel)
     {
         _playerAnimationSpeed = animationSpeed;
         _parallaxSpeed = parallaxSpeed;
@@ -33,6 +34,7 @@ public struct Entity
         _playerAcceleration = playerAcceleration;
         _bulletAcceleration = bulletAcceleration;
         _bulletRadius = bulletRadius;
+        _bulletGroundLevel = bulletGroundLevel;
     }
 
   

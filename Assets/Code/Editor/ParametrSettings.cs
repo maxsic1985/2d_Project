@@ -27,10 +27,7 @@ public class ParametrSettings : EditorWindow
         EntityData.GameSetting._parallaxSpeed = LabelSlider(140, ref EntityData.GameSetting._playerAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "_playerAcceleration");
         EntityData.GameSetting._parallaxSpeed = LabelSlider(160, ref EntityData.GameSetting._jumpStartSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "_jumpStartSpeed");
         EntityData.GameSetting._parallaxSpeed = LabelSlider(180, ref EntityData.GameSetting._groundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "_groundLevel");
-
-
-
-
+        EntityData.GameSetting._parallaxSpeed = LabelSlider(200, ref EntityData.GameSetting._bulletGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletGroundLevel");
 
 
     }

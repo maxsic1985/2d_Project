@@ -15,8 +15,8 @@ public class Bullet
     {
         if (IsGrounded())
         {
-            SetVelocity(_velocity.Change(y: -_velocity.y));
-            _bulletView.transform.position = _bulletView.transform.position.Change(y: EntityData.GameSetting._groundLevel + EntityData.GameSetting._bulletRadius);
+            SetVelocity(_velocity.Change(y: -_velocity.y / 2));
+            _bulletView.transform.position = _bulletView.transform.position.Change(y: EntityData.GameSetting._bulletGroundLevel + EntityData.GameSetting._bulletRadius);
         }
         else
         {
@@ -36,14 +36,14 @@ public class Bullet
     {
         _velocity = velocity;
 
-        var angle = Vector3.Angle(Vector3.left, _velocity);
-        var axis = Vector3.Cross(Vector3.left, _velocity);
-        _bulletView.transform.rotation = Quaternion.AngleAxis(angle, axis);
+        var angle = Vector3.Angle(Vector3.right, _velocity);
+        var axis = Vector3.Cross(Vector3.right, _velocity);
 
+        _bulletView.transform.rotation = Quaternion.AngleAxis(angle, axis);
     }
 
     private bool IsGrounded()
     {
-        return _bulletView.transform.position.y <= EntityData.GameSetting._groundLevel + EntityData.GameSetting._bulletRadius && _velocity.y <= -1;
+        return _bulletView.transform.position.y <= EntityData.GameSetting._groundLevel + EntityData.GameSetting._bulletRadius;
     }
 }
