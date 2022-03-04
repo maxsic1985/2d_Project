@@ -18,7 +18,7 @@ public class PlayerMoveController : IExecute
         var doJump = Input.GetAxis(GameConstants.Vertical) > 0;
         var xAxisInput = Input.GetAxis(GameConstants.Horizontal);
 
-        var isGoSideWay = Mathf.Abs(xAxisInput) > EntityData.GameSetting._playerMovingTresh;
+        var isGoSideWay = Mathf.Abs(xAxisInput) > _characterView.PlayerMoveTresh;
 
         if (isGoSideWay)
             GoSideWay(xAxisInput);
@@ -29,7 +29,7 @@ public class PlayerMoveController : IExecute
 
             if (doJump && Mathf.Approximately(_yVelocity, 0))
             {
-                _yVelocity = EntityData.GameSetting._jumpStartSpeed;
+                _yVelocity = _characterView.PlayerJumpStartSpeed;
             }
             else if (_yVelocity < 0)
             {
@@ -44,9 +44,9 @@ public class PlayerMoveController : IExecute
     }
     private void LandingCharater()
     {
-        _yVelocity += EntityData.GameSetting._playerAcceleration * Time.deltaTime;
+        _yVelocity += _characterView.PlayerAcceleration * Time.deltaTime;
 
-        if (Mathf.Abs(_yVelocity) > EntityData.GameSetting._flyTresh)
+        if (Mathf.Abs(_yVelocity) > _characterView.PlayerFlyTresh)
             _spriteAnimator.StartAnimation(_characterView.SpriteRenderer, AnimationType.JUMP, true, EntityData.GameSetting._playerAnimationSpeed);
 
         _characterView.transform.position += Vector3.up * (Time.deltaTime * _yVelocity);
@@ -54,17 +54,17 @@ public class PlayerMoveController : IExecute
 
     private void MovementCharacter()
     {
-        _characterView.transform.position = _characterView.transform.position.Change(y: EntityData.GameSetting._groundLevel);
+        _characterView.transform.position = _characterView.transform.position.Change(y: _characterView.PlayerGroundLevel);
     }
 
     private bool IsGrounded()
     {
-        return _characterView.transform.position.y <= EntityData.GameSetting._groundLevel && _yVelocity <= 0;
+        return _characterView.transform.position.y <= _characterView.PlayerGroundLevel && _yVelocity <= 0;
     }
 
     private void GoSideWay(float xAxisInput)
     {
-        _characterView.transform.position += Vector3.right * (Time.deltaTime * EntityData.GameSetting._playerWalkSpeed * (xAxisInput < 0 ? -1 : 1));
+        _characterView.transform.position += Vector3.right * (Time.deltaTime * _characterView.PlayerWalkSpeed * (xAxisInput < 0 ? -1 : 1));
         _characterView.SpriteRenderer.flipX = xAxisInput < 0;
     }
 }

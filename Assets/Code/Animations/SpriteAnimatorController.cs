@@ -52,9 +52,7 @@ public class SpriteAnimatorController:IExecute
     {
         foreach (var animation in _activeAnimations)
         {
-             // animation.Value.Execute(Time.deltaTime);
              animation.Value.Update();
-
             animation.Key.sprite = animation.Value.Sprites[(int)animation.Value.Counter];
         }
     }

@@ -9,6 +9,7 @@ public class ParametrSettings : EditorWindow
     private static bool CheckStart = true;
     private const int LineString = 20;
     private static int[] _posY;
+
     [MenuItem("Инструменты/ Окна/ Настройки объектов")]
     public static void ShowWindowSettingGame()
     {
@@ -18,17 +19,21 @@ public class ParametrSettings : EditorWindow
 
     private void OnGUI()
     {
-        EntityData.GameSetting._playerAnimationSpeed = LabelSlider(20, ref EntityData.GameSetting._playerAnimationSpeed, ref EntityData.GameSetting._playerAnimationSpeed_max, "Animation Speed");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(40, ref EntityData.GameSetting._parallaxSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "Paralax Coef");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(60, ref EntityData.GameSetting._bulletAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletAcceleration");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(80, ref EntityData.GameSetting._bulletRadius, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletRadius");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(100, ref EntityData.GameSetting._playerWalkSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "_playerWalkSpeed");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(120, ref EntityData.GameSetting._playerMovingTresh, ref EntityData.GameSetting._parallaxSpeed_max, "_playerMovingTresh");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(140, ref EntityData.GameSetting._playerAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "_playerAcceleration");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(160, ref EntityData.GameSetting._jumpStartSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "_jumpStartSpeed");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(180, ref EntityData.GameSetting._groundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "_groundLevel");
-        EntityData.GameSetting._parallaxSpeed = LabelSlider(200, ref EntityData.GameSetting._bulletGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "_bulletGroundLevel");
+        var _player = GameObject.FindObjectOfType<PlayerProvider>();
+        var _bullet = GameObject.FindObjectOfType<BulletProvider>();
+        LabelSlider(20, ref EntityData.GameSetting._playerAnimationSpeed, ref EntityData.GameSetting._playerAnimationSpeed_max, "Animation Speed");
+        LabelSlider(40, ref EntityData.GameSetting._parallaxSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "Paralax Coef");
 
+        LabelSlider(60, ref _bullet.BulletAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "BulletAcceleration");
+        LabelSlider(80, ref _bullet.BulletRadius, ref EntityData.GameSetting._parallaxSpeed_max, "BulletRadius");
+        LabelSlider(100, ref _bullet.BulletGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "BulletGroundLevel");
+
+        LabelSlider(120, ref _player.PlayerWalkSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerWalkSpeed");
+        LabelSlider(140, ref _player.PlayerMoveTresh, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerMovingTresh");
+        LabelSlider(160, ref _player.PlayerAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerAcceleration");
+        LabelSlider(180, ref _player.PlayerJumpStartSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerJumpStartSpeed");
+        LabelSlider(200, ref _player.PlayerGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerGroundLevel");
+        LabelSlider(220, ref _player.PlayerFlyTresh, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerFlyTresh");
 
     }
 
@@ -56,12 +61,13 @@ public class ParametrSettings : EditorWindow
         SaveChanges();
         return sliderValue;
     }
+
     private float GetString(string str)
     {
-        float tmp = 0f;
-        float.TryParse(str, out tmp);
+        float.TryParse(str, out var tmp);
         return tmp;
     }
+
     static void Started()
     {
         if (CheckStart)
