@@ -12,28 +12,21 @@ public class UnevirseHandler : MonoBehaviour
     private float _spaceCircleRadius = 0;
 
     // Исходные размеры объекта фона
-    private float _backgroundOriginalSizeX = 0;
-    private float _backgroundOriginalSizeY = 0;
+    private float _backgroundOriginalSizeX = 0f;
+    private float _backgroundOriginalSizeY = 0f;
 
     // Направление движения
     private Vector3 _moveVector;
-
-    // Вспомогательные переменные
-    private bool _mousePressed = false;
-    private float _halfScreenWidth = 0;
 
     void Start()
     {
         // Стартовое направление движения
         _moveVector = new Vector3(0, 0, 0);
-        // Используется для определения направления поворота
-        _halfScreenWidth = Screen.width / 2f;
-
         // Исходные размеры фона
         SpriteRenderer sr = space.GetComponent<SpriteRenderer>();
         var originalSize = sr.size;
         _backgroundOriginalSizeX = originalSize.x;
-        _backgroundOriginalSizeY = originalSize.y;
+        _backgroundOriginalSizeY = originalSize.y+0.5f;
 
         // Высота камеры равна ортографическому размеру
         float orthographicSize = mainCamera.orthographicSize;
@@ -46,35 +39,22 @@ public class UnevirseHandler : MonoBehaviour
         sr.size = new Vector2(_spaceCircleRadius * 2 + _backgroundOriginalSizeX * 2, _spaceCircleRadius * 2 + _backgroundOriginalSizeY * 2);
     }
 
-    void Update()
+
+    public void MoveBackGround(Transform transform)
     {
-        if (!Mathf.Approximately(Input.GetAxis("Horizontal"),0))
+
+        if (transform.position.x >= _backgroundOriginalSizeX+space.transform.position.x)
         {
-            _mousePressed = true;
+            space.transform.position= space.transform.position.Change(x: space.transform.position.x+_backgroundOriginalSizeX);
+            return;
         }
 
-       else
+        if (transform.position.x <= -_backgroundOriginalSizeX + space.transform.position.x)
         {
-            _mousePressed = false;
+            space.transform.position = space.transform.position.Change(x: space.transform.position.x - _backgroundOriginalSizeX);
+            return;
         }
 
-        if (_mousePressed)
-        {
-            var rotation = Input.GetAxis("Horizontal");
-            float xComp = (rotation * Time.deltaTime);
-            _moveVector = new Vector3(xComp, 0, 0);
-        }
-
-        space.transform.Translate(-_moveVector.x * Time.deltaTime*100, 0, 0);
-
-        if (space.transform.position.x >= _backgroundOriginalSizeX)
-        {
-            space.transform.Translate(-_backgroundOriginalSizeX, 0, 0);
-        }
-        if (space.transform.position.x <= -_backgroundOriginalSizeX)
-        {
-            space.transform.Translate(_backgroundOriginalSizeX, 0, 0);
-        }
     }
 
     private void OnDrawGizmos()

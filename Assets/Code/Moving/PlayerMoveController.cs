@@ -55,6 +55,7 @@ public class PlayerMoveController : IExecute
     private void MovementCharacter()
     {
         _characterView.transform.position = _characterView.transform.position.Change(y: _characterView.PlayerGroundLevel);
+      
     }
 
     private bool IsGrounded()
@@ -64,7 +65,10 @@ public class PlayerMoveController : IExecute
 
     private void GoSideWay(float xAxisInput)
     {
+      
         _characterView.transform.position += Vector3.right * (Time.deltaTime * _characterView.PlayerWalkSpeed * (xAxisInput < 0 ? -1 : 1));
         _characterView.SpriteRenderer.flipX = xAxisInput < 0;
+        var bg = GameObject.FindObjectOfType<UnevirseHandler>();
+        bg.MoveBackGround(_characterView.transform);
     }
 }
