@@ -26,7 +26,7 @@ public class UnevirseHandler : MonoBehaviour
         SpriteRenderer sr = space.GetComponent<SpriteRenderer>();
         var originalSize = sr.size;
         _backgroundOriginalSizeX = originalSize.x;
-        _backgroundOriginalSizeY = originalSize.y+0.5f;
+        _backgroundOriginalSizeY = originalSize.y-0.5f;
 
         // Высота камеры равна ортографическому размеру
         float orthographicSize = mainCamera.orthographicSize;

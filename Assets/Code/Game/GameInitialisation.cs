@@ -12,7 +12,8 @@ public class GameInitialisation
 
         var paralaxManager = new ParalaxController(camera, background.transform);
         var spriteAnimator = new SpriteAnimatorController(spriteAnimationConfig);
-        var playerMoveController = new PlayerMoveController(characterView, spriteAnimator);
+       // var playerMoveController = new PlayerMoveController(characterView, spriteAnimator);
+        var playerMoveController = new PlayerPhysicsMoveController(characterView, spriteAnimator);
         var cannonAim = new CannonAimmingController(cannon.transform, characterView.transform);
         var bulletController = new BulletController(bullets, cannon.CannonTransform);
         spriteAnimator.StartAnimation(characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._playerAnimationSpeed);
