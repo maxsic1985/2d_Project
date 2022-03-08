@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletProvider : MonoBehaviour
@@ -10,6 +8,11 @@ public class BulletProvider : MonoBehaviour
     public float BulletAcceleration = -5;
     public float BulletRadius = 0.01f;
     public float BulletGroundLevel = -0.4f;
+
+    public Transform Transform;
+    public Rigidbody2D Rigidbody2D;
+    public CircleCollider2D CircleCollider2D;
+
 
     public void SetVisible(bool visible)
     {

@@ -35,6 +35,8 @@ public class PlayerPhysicsMoveController : IFixedExecute
 
         if (isGoSideWay)
             _characterView.SpriteRenderer.flipX = xAxisInput < 0;
+        var bg = GameObject.FindObjectOfType<UnevirseHandler>();
+        bg.MoveBackGround(_characterView.transform);
 
         var newVelocity = 0f;
 

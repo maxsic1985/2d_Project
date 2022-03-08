@@ -7,7 +7,7 @@ public class BulletController : IExecute
     private const float _delay = 3;
     private const float _startSpeed = 5;
 
-    private List<Bullet> _bullets = new List<Bullet>();
+    private List<PhysicsBullet> _bullets = new List<PhysicsBullet>();
     private Transform _bulletStartPosition;
 
     private int _currentIndex;
@@ -18,7 +18,7 @@ public class BulletController : IExecute
         _bulletStartPosition = bulletStartPosition;
 
         foreach (var bulletView in bullets)
-            _bullets.Add(new Bullet(bulletView));
+            _bullets.Add(new PhysicsBullet(bulletView));
     }
 
     public void Execute(float deltaTime)

@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class PlayerProvider : MonoBehaviour
@@ -21,4 +22,10 @@ public class PlayerProvider : MonoBehaviour
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
     public Collider2D Collider => _collider;
     public Rigidbody2D Rigidbody => _rigidbody;
+    public Action<LevelObjectView> OnLevelObjectContact { get; set; }
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        var levelObject = collider.gameObject.GetComponent<LevelObjectView>();
+        OnLevelObjectContact?.Invoke(levelObject);
+    }
 }
