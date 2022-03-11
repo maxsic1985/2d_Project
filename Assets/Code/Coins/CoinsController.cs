@@ -9,8 +9,7 @@ public class CoinsController : IDisposable,IExecute,IInitialisation
   
     private PlayerProvider _characterView;
     private List<LevelObjectView> _coinViews;
-    public CoinsController(PlayerProvider characterView, List<LevelObjectView>
-    coinViews)
+    public CoinsController(PlayerProvider characterView,List<LevelObjectView> coinViews)
     {
         _characterView = characterView;
         _coinViews = coinViews;

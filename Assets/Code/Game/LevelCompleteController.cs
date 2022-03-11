@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelCompleteController : IDisposable,IInitialisation
+public class LevelCompleteController : IDisposable, IInitialisation
 {
-  
-private Vector3 _startPosition;
+
+    private Vector3 _startPosition;
     private PlayerProvider _characterView;
     private List<LevelObjectView> _deathZones;
     private List<LevelObjectView> _winZones;
@@ -23,21 +23,24 @@ private Vector3 _startPosition;
     {
         if (_deathZones.Contains(contactView))
         {
-            Time.timeScale = 0f;
+            _characterView.transform.position = _startPosition;
+            Debug.LogError($"Yoy killed by {contactView.gameObject.name}");
         }
         if (_winZones.Contains(contactView))
         {
             _characterView.transform.position = _startPosition;
+            Debug.LogError($"Yoy Win");
         }
     }
     public void Dispose()
     {
         _characterView.OnLevelObjectContact -= OnLevelObjectContact;
+
     }
 
     public void Initialization()
     {
-       
+
     }
 }
 

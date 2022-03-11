@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowController : MonoBehaviour
@@ -10,6 +8,10 @@ public class FollowController : MonoBehaviour
     void Start()
     {
        GameObject.FindObjectOfType<PlayerProvider>().TryGetComponent<Transform>(out _target);
+
+        //var player = GameObject.FindObjectOfType<PlayerProvider>().gameObject;
+        //_offset = transform.position - player.transform.position;
+
         _offset = transform.position - _target.transform.position;
     }
 
@@ -19,3 +21,4 @@ public class FollowController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, _target.position + _offset, Time.deltaTime * 1.0f);
     }
 }
+    
