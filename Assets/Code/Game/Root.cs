@@ -37,6 +37,7 @@ public class Root : MonoBehaviour
     {
         _controllers = new Controllers();
         _controllers.Initialization();
+
         new GameInitialisation(_controllers,_camera,_background.transform,_spriteAnimationConfig,_characterView,
             _cannonTransform, _bullets,_coins,_deathZones,_winZones);
     }

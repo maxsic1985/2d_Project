@@ -9,6 +9,7 @@ public class GameInitialisation
         CannonProvider cannon, List<BulletProvider> bullets, List<LevelObjectView> coins, List<LevelObjectView> winZones, List<LevelObjectView> deathZone)
     {
         _controllers = controllers;
+        
 
         var paralaxManager = new ParalaxController(camera, background.transform);
         var spriteAnimator = new SpriteAnimatorController(spriteAnimationConfig);
