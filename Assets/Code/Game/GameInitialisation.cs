@@ -6,18 +6,21 @@ public class GameInitialisation
     private Controllers _controllers;
 
     public GameInitialisation(Controllers controllers, Camera camera, Transform background, ICongig<SpriteSequence> spriteAnimationConfig, PlayerProvider characterView,
-        CannonProvider cannon, List<BulletProvider> bullets, List<LevelObjectView> coins, List<LevelObjectView> winZones, List<LevelObjectView> deathZone)
+       List<CannonProvider> cannon, GameObject bullets, List<LevelObjectView> coins, List<LevelObjectView> winZones, List<LevelObjectView> deathZone)
     {
         _controllers = controllers;
-        
+
 
         var paralaxManager = new ParalaxController(camera, background.transform);
         var spriteAnimator = new SpriteAnimatorController(spriteAnimationConfig);
-        var playerMoveController = new PlayerPhysicsMoveController(characterView, spriteAnimator);
-        var cannonAim = new CannonAimmingController(cannon.transform, characterView.transform);
-        var bulletController = new BulletController(bullets, cannon.CannonTransform);
-        var coinsController = new CoinsController(characterView, coins);
-        var levelZone = new LevelCompleteController(characterView, winZones, deathZone);
+        characterView.gameObject.TryGetComponent<BackGroundController>(out BackGroundController groundController);
+        var playerMoveController = new PlayerPhysicsMoveController(characterView, spriteAnimator, groundController);
+        var cannonAim = new CannonAimmingController(cannon, characterView.transform);
+        var bulletPool = new ObjectPool(bullets, GameConstants.BULLET_POOL_LENGHT);
+        var bulletController = new BulletController(bulletPool, cannon);
+        var coinsPool = new ObjectPool(coins[0].gameObject, GameConstants.BULLET_POOL_LENGHT);
+        var coinsController = new CoinsController(characterView,coinsPool);
+        var levelZone = new LevelCompleteController(characterView, deathZone, winZones);
         spriteAnimator.StartAnimation(characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._playerAnimationSpeed);
 
         _controllers.Add(paralaxManager);

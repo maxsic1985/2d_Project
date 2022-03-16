@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4686889780677431867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAcceleration: 50
-  PlayerMoveTresh: 0
-  PlayerFlyTresh: 0
+  PlayerMoveTresh: 0.2
+  PlayerFlyTresh: 0.25
   PlayerGroundLevel: -0.3
-  PlayerWalkSpeed: 30
-  PlayerJumpStartSpeed: 25
+  PlayerWalkSpeed: 40
+  PlayerJumpStartSpeed: 30
   _spriteRenderer: {fileID: 4686889780677431865}
   _collider: {fileID: 4686889780677431869}
   _rigidbody: {fileID: 4686889780677431868}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4686889780677431867}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 737be9aca869f2043a9fcc27241ac59d, type: 3}
   m_Name: 

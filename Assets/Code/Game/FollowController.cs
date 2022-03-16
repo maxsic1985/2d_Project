@@ -7,11 +7,7 @@ public class FollowController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       GameObject.FindObjectOfType<PlayerProvider>().TryGetComponent<Transform>(out _target);
-
-        //var player = GameObject.FindObjectOfType<PlayerProvider>().gameObject;
-        //_offset = transform.position - player.transform.position;
-
+        GameObject.FindObjectOfType<PlayerProvider>().TryGetComponent<Transform>(out _target);
         _offset = transform.position - _target.transform.position;
     }
 
@@ -21,4 +17,3 @@ public class FollowController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, _target.position + _offset, Time.deltaTime * 1.0f);
     }
 }
-    

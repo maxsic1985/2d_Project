@@ -4,24 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CoinsController : IDisposable,IExecute,IInitialisation
+public class CoinsController : IDisposable, IExecute
 {
-  
+
     private PlayerProvider _characterView;
-    private List<LevelObjectView> _coinViews;
-    public CoinsController(PlayerProvider characterView,List<LevelObjectView> coinViews)
+    private List<LevelObjectView> _coinViews = new List<LevelObjectView>();
+    private ObjectPool _coinsPool;
+    private GameObject _coin;
+    public CoinsController(PlayerProvider characterView, ObjectPool coinsPool)
     {
         _characterView = characterView;
-        _coinViews = coinViews;
+        _coinsPool = coinsPool;
+         GenerateCOins();
         _characterView.OnLevelObjectContact += OnLevelObjectContact;
-      
+
     }
     private void OnLevelObjectContact(LevelObjectView contactView)
     {
         if (_coinViews.Contains(contactView))
         {
-       
-            GameObject.Destroy(contactView.gameObject);
+            _coinsPool.Push(contactView.gameObject);
+            _coinViews.Remove(contactView);
         }
     }
     public void Dispose()
@@ -31,11 +34,21 @@ public class CoinsController : IDisposable,IExecute,IInitialisation
 
     public void Execute(float deltaTime)
     {
-       
+        if (_coinViews.Count == 0)
+            GenerateCOins();
     }
 
-    public void Initialization()
+    private void GenerateCOins()
     {
-      
+        for (int i = 0; i < _coinsPool.PoolCnt; i++)
+        {
+
+            _coin = _coinsPool.Pop();
+
+            _coinViews.Add(_coin.GetComponent<LevelObjectView>());
+            _coinViews[i].transform.position = _characterView.transform.position.Change(x: _characterView.transform.position.x * 2 + i,y: _characterView.transform.position.y);
+        }
+
+
     }
 }

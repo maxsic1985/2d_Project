@@ -68,7 +68,7 @@ public class PlayerMoveController : IExecute
       
         _characterView.transform.position += Vector3.right * (Time.deltaTime * _characterView.PlayerWalkSpeed * (xAxisInput < 0 ? -1 : 1));
         _characterView.SpriteRenderer.flipX = xAxisInput < 0;
-        var bg = GameObject.FindObjectOfType<UnevirseHandler>();
+        var bg = GameObject.FindObjectOfType<BackGroundController>();
         bg.MoveBackGround(_characterView.transform);
     }
 }

@@ -8,7 +8,7 @@ public class Bullet
     public Bullet(BulletProvider bulletView)
     {
         _bulletView = bulletView;
-        _bulletView.SetVisible(false);
+    //    _bulletView.SetVisible(false);
     }
 
     public void Update()
@@ -18,6 +18,7 @@ public class Bullet
           
             SetVelocity(_velocity.Change(y: -_velocity.y / 2));
             _bulletView.transform.position = _bulletView.transform.position.Change(y: _bulletView.BulletGroundLevel + _bulletView.BulletRadius);
+           
             return;
         }
         else
@@ -27,11 +28,11 @@ public class Bullet
         }
     }
 
-    public void Throw(Vector3 position, Vector3 velocity)
+    public void Throw(ref Vector3 position,ref Vector3 velocity)
     {
         _bulletView.transform.position = position;
-        SetVelocity(velocity);
-        _bulletView.SetVisible(true);
+        SetVelocity( velocity);
+       // _bulletView.SetVisible(true);
     }
 
     private void SetVelocity(Vector3 velocity)

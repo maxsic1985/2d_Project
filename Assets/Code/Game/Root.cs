@@ -16,10 +16,10 @@ public class Root : MonoBehaviour
     private SpriteAnimationConfig _spriteAnimationConfig;
 
     [SerializeField]
-    private CannonProvider _cannonTransform;
+    private List<CannonProvider> _cannonTransform=new List<CannonProvider>();
 
     [SerializeField]
-    private List<BulletProvider> _bullets;
+    private GameObject _bullets;
 
     [SerializeField]
     private List<LevelObjectView> _coins;
@@ -36,10 +36,10 @@ public class Root : MonoBehaviour
     private void Start()
     {
         _controllers = new Controllers();
-        _controllers.Initialization();
 
-        new GameInitialisation(_controllers,_camera,_background.transform,_spriteAnimationConfig,_characterView,
-            _cannonTransform, _bullets,_coins,_deathZones,_winZones);
+        new GameInitialisation(_controllers, _camera, _background.transform, _spriteAnimationConfig, _characterView,
+            _cannonTransform, _bullets, _coins, _winZones, _deathZones);
+        _controllers.Initialization();
     }
 
     private void Update()
@@ -53,8 +53,11 @@ public class Root : MonoBehaviour
         _controllers.FixedExecute(Time.fixedDeltaTime);
     }
 
+
+
     private void OnDestroy()
     {
         _controllers.Cleanup();
     }
+
 }

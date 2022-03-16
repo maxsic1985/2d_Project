@@ -20,13 +20,14 @@ public class ParametrSettings : EditorWindow
     private void OnGUI()
     {
         var _player = GameObject.FindObjectOfType<PlayerProvider>();
-        var _bullet = GameObject.FindObjectOfType<BulletProvider>();
+        GameObject.FindObjectOfType<BulletProvider>().TryGetComponent<BulletProvider>(out BulletProvider _bullet);
         LabelSlider(20, ref EntityData.GameSetting._playerAnimationSpeed, ref EntityData.GameSetting._playerAnimationSpeed_max, "Animation Speed");
         LabelSlider(40, ref EntityData.GameSetting._parallaxSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "Paralax Coef");
 
         LabelSlider(60, ref _bullet.BulletAcceleration, ref EntityData.GameSetting._parallaxSpeed_max, "BulletAcceleration");
         LabelSlider(80, ref _bullet.BulletRadius, ref EntityData.GameSetting._parallaxSpeed_max, "BulletRadius");
         LabelSlider(100, ref _bullet.BulletGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "BulletGroundLevel");
+        LabelSlider(240, ref _bullet.ShootDelay, ref EntityData.GameSetting._parallaxSpeed_max, "Shooting Delay");
 
         LabelSlider(120, ref _player.PlayerWalkSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerWalkSpeed");
         LabelSlider(140, ref _player.PlayerMoveTresh, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerMovingTresh");
@@ -34,6 +35,8 @@ public class ParametrSettings : EditorWindow
         LabelSlider(180, ref _player.PlayerJumpStartSpeed, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerJumpStartSpeed");
         LabelSlider(200, ref _player.PlayerGroundLevel, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerGroundLevel");
         LabelSlider(220, ref _player.PlayerFlyTresh, ref EntityData.GameSetting._parallaxSpeed_max, "PlayerFlyTresh");
+
+
 
     }
 

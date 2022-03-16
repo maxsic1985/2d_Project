@@ -2,9 +2,9 @@
 
 public class ContactsPoller
 {
-    private const float _collisionTresh = 0.1f;
+    private const float _collisionTresh = 0.01f;
 
-    private ContactPoint2D[] _contacts = new ContactPoint2D[10];
+    private ContactPoint2D[] _contacts = new ContactPoint2D[20];
     private Collider2D _collider2D;
 
     public bool IsGrounded { get; private set; }
@@ -27,6 +27,7 @@ public class ContactsPoller
         for (var i = 0; i < contactsCount; i++)
         {
             var normal = _contacts[i].normal;
+          
             var rigidbody = _contacts[i].rigidbody;
 
             if (normal.y > _collisionTresh)
@@ -38,5 +39,6 @@ public class ContactsPoller
             if (normal.x < -_collisionTresh && rigidbody == null)
                 HasRightContacts = true;
         }
+     
     }
 }

@@ -25,6 +25,7 @@ public class LevelCompleteController : IDisposable, IInitialisation
         {
             _characterView.transform.position = _startPosition;
             Debug.LogError($"Yoy killed by {contactView.gameObject.name}");
+            Application.LoadLevel(Application.loadedLevel);
         }
         if (_winZones.Contains(contactView))
         {

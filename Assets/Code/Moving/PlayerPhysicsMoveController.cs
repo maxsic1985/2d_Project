@@ -10,12 +10,13 @@ public class PlayerPhysicsMoveController : IFixedExecute
     private PlayerProvider _characterView;
     private SpriteAnimatorController _spriteAnimator;
     private ContactsPoller _contactsPoller;
+    private readonly BackGroundController _backGroundController;
 
-    public PlayerPhysicsMoveController(PlayerProvider characterView, SpriteAnimatorController spriteAnimator)
+    public PlayerPhysicsMoveController(PlayerProvider characterView, SpriteAnimatorController spriteAnimator, BackGroundController backGroundController)
     {
         _characterView = characterView;
         _spriteAnimator = spriteAnimator;
-
+        _backGroundController = backGroundController;
         _contactsPoller = new ContactsPoller(characterView.Collider);
     }
 
@@ -35,8 +36,8 @@ public class PlayerPhysicsMoveController : IFixedExecute
 
         if (isGoSideWay)
             _characterView.SpriteRenderer.flipX = xAxisInput < 0;
-        var bg = GameObject.FindObjectOfType<UnevirseHandler>();
-        bg.MoveBackGround(_characterView.transform);
+     
+        _backGroundController.MoveBackGround(_characterView.transform);
 
         var newVelocity = 0f;
 
