@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInitialisation
 {
     private Controllers _controllers;
 
     public GameInitialisation(Controllers controllers, Camera camera, Transform background, ICongig<SpriteSequence> spriteAnimationConfig, PlayerProvider characterView,
-       List<CannonProvider> cannon, GameObject bullets, List<LevelObjectView> coins, List<LevelObjectView> winZones, List<LevelObjectView> deathZone)
+       List<CannonProvider> cannon, GameObject bullets, List<LevelObjectView> coins, List<LevelObjectView> winZones, List<LevelObjectView> deathZone,Text coinsText, Image[] playerLives)
     {
         _controllers = controllers;
 
@@ -19,8 +20,9 @@ public class GameInitialisation
         var bulletPool = new ObjectPool(bullets, GameConstants.BULLET_POOL_LENGHT);
         var bulletController = new BulletController(bulletPool, cannon);
         var coinsPool = new ObjectPool(coins[0].gameObject, GameConstants.BULLET_POOL_LENGHT);
-        var coinsController = new CoinsController(characterView,coinsPool);
-        var levelZone = new LevelCompleteController(characterView, deathZone, winZones);
+        var coinsController = new CoinsController(characterView,coinsPool,new CoinsDisplay( coinsText));
+        var playerLiveDisplay = new PlayerLiveDisplay(playerLives);
+        var levelZone = new LevelCompleteController(characterView, deathZone, winZones, playerLiveDisplay);
         spriteAnimator.StartAnimation(characterView.SpriteRenderer, AnimationType.IDLE, true, EntityData.GameSetting._playerAnimationSpeed);
 
         _controllers.Add(paralaxManager);

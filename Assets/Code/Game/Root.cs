@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Root : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class Root : MonoBehaviour
     [SerializeField]
     private List<LevelObjectView> _winZones;
 
+    [SerializeField]
+    private Text _textCoins;
+    [SerializeField]
+    private Image[] _playerLives;
 
     private Controllers _controllers;
     private ParalaxController _paralaxManager;
@@ -38,7 +43,7 @@ public class Root : MonoBehaviour
         _controllers = new Controllers();
 
         new GameInitialisation(_controllers, _camera, _background.transform, _spriteAnimationConfig, _characterView,
-            _cannonTransform, _bullets, _coins, _winZones, _deathZones);
+            _cannonTransform, _bullets, _coins, _winZones, _deathZones,_textCoins, _playerLives);
         _controllers.Initialization();
     }
 

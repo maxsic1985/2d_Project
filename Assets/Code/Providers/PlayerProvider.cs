@@ -1,6 +1,8 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerProvider : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerProvider : MonoBehaviour
     public float PlayerGroundLevel = 0.1f;
     public float PlayerWalkSpeed = 2;
     public float PlayerJumpStartSpeed = 2;
+    public int PlayerCoins = 0;
+    public int PlayerLive = 3;
 
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
@@ -27,5 +31,6 @@ public class PlayerProvider : MonoBehaviour
     {
         var levelObject = collider.gameObject.GetComponent<LevelObjectView>();
         OnLevelObjectContact?.Invoke(levelObject);
+     
     }
 }
