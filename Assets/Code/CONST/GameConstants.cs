@@ -7,7 +7,7 @@ public static class GameConstants
     public const float PARALAX_COEF_MAX = 1;
 
     public const int BULLET_POOL_LENGHT = 5;
-  
+    public const int COINS_POOL_LENGHT = 50;
 
     public const string Horizontal = nameof(Horizontal);
     public const string Vertical = nameof(Vertical);

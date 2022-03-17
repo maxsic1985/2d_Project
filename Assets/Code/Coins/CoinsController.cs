@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CoinsController : IDisposable, IExecute
 {
-
+    public Action CoinsGenerate;
     private PlayerProvider _characterView;
     private List<LevelObjectView> _coinViews = new List<LevelObjectView>();
     private ObjectPool _coinsPool;
@@ -19,6 +19,7 @@ public class CoinsController : IDisposable, IExecute
          GenerateCOins();
         _characterView.OnLevelObjectContact += OnLevelObjectContact;
         _coinsDisplay = coinsDisplay;
+        CoinsGenerate += GenerateCOins;
     }
     private void OnLevelObjectContact(LevelObjectView contactView)
     {
@@ -49,7 +50,7 @@ public class CoinsController : IDisposable, IExecute
         {
             _coin = _coinsPool.Pop();
             _coinViews.Add(_coin.GetComponent<LevelObjectView>());
-            _coinViews[i].transform.position = _characterView.transform.position.Change(x: _characterView.transform.position.x * 2 + i, y: _characterView.transform.position.y);
+            _coinViews[i].transform.position = _characterView.transform.position.Change(x: _characterView.transform.position.x * 2 + i+1, y: _characterView.transform.position.y);
         }
 
 

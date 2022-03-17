@@ -39,6 +39,7 @@ public class PlayerPhysicsMoveController : IFixedExecute
      
         _backGroundController.MoveBackGround(_characterView.transform);
 
+
         var newVelocity = 0f;
 
         if (isGoSideWay &&

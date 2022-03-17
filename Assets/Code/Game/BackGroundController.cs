@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 
-//TO DO for background
 public class BackGroundController : MonoBehaviour
 {
-    // —сылки на объекты сцены
+
     [SerializeField] private Camera mainCamera = null;
     [SerializeField] private GameObject space = null;
 

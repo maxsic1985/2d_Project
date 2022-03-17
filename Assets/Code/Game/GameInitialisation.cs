@@ -19,7 +19,7 @@ public class GameInitialisation
         var cannonAim = new CannonAimmingController(cannon, characterView.transform);
         var bulletPool = new ObjectPool(bullets, GameConstants.BULLET_POOL_LENGHT);
         var bulletController = new BulletController(bulletPool, cannon);
-        var coinsPool = new ObjectPool(coins[0].gameObject, GameConstants.BULLET_POOL_LENGHT);
+        var coinsPool = new ObjectPool(coins[0].gameObject, GameConstants.COINS_POOL_LENGHT);
         var coinsController = new CoinsController(characterView,coinsPool,new CoinsDisplay( coinsText));
         var playerLiveDisplay = new PlayerLiveDisplay(playerLives);
         var levelZone = new LevelCompleteController(characterView, deathZone, winZones, playerLiveDisplay);
