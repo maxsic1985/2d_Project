@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8713851395280945110}
   - component: {fileID: 8713851395280945111}
   - component: {fileID: 8713851395280945113}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Idle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8713851396082202343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HugeSaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8713851396658701484}
   - component: {fileID: 8713851396658701485}
   - component: {fileID: 8713851396658701482}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grey Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.16, y: 0}
-  m_ConnectedAnchor: {x: 0.0050001144, y: -0.01788795}
+  m_ConnectedAnchor: {x: 0.0050001144, y: -0.01788801}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 50
@@ -292,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 7462581140785633520, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
       propertyPath: m_Name
       value: DeathSaw1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462581140785633520, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7462581140785633526, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
       propertyPath: m_RootOrder
@@ -341,6 +345,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8713851396152039585, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 8713851396658701485}
     m_RemovedComponents:
     - {fileID: 313309318, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
@@ -354,6 +362,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7462581140785633526, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
   m_PrefabInstance: {fileID: 8713851396276440237}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1909510203
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269176147970872413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.19
 --- !u!232 &8713851396152039585
 DistanceJoint2D:
   m_ObjectHideFlags: 0

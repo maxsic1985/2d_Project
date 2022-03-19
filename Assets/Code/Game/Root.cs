@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,12 +39,32 @@ public class Root : MonoBehaviour
     private ParalaxController _paralaxManager;
     private SpriteAnimatorController _spriteAnimator;
 
+    [Header("Protector AI")]
+    [SerializeField] private AIDestinationSetter _protectorAIDestinationSetter;
+    [SerializeField] private AIPatrolPath _protectorAIPatrolPath;
+    [SerializeField] private LevelObjectTrigger _protectedZoneTrigger;
+    [SerializeField] private Transform[] _protectorWaypoints;
+
     private void Start()
     {
         _controllers = new Controllers();
 
-        new GameInitialisation(_controllers, _camera, _background.transform, _spriteAnimationConfig, _characterView,
-            _cannonTransform, _bullets, _coins, _winZones, _deathZones,_textCoins, _playerLives);
+        new GameInitialisation(_controllers,
+                               _camera,
+                               _background.transform,
+                               _spriteAnimationConfig,
+                               _characterView,
+                               _cannonTransform,
+                               _bullets,
+                               _coins,
+                               _winZones,
+                               _deathZones,
+                               _textCoins,
+                               _playerLives,
+                               _protectorAIDestinationSetter,
+                               _protectorAIPatrolPath,
+                               _protectedZoneTrigger,
+                               _protectorWaypoints);
         _controllers.Initialization();
     }
 
