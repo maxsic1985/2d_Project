@@ -26,7 +26,7 @@ public class PatrolAIModel
             return null;
 
         var closestIndex = 0;
-        var closestDistance = 0.0f;
+        var closestDistance = 1.5f;
 
         for (var i = 0; i < _waypoints.Length; i++)
         {
@@ -39,6 +39,7 @@ public class PatrolAIModel
             }
         }
         _currentPointIndex = closestIndex;
-        return _waypoints[_currentPointIndex];
+           return _waypoints[_currentPointIndex];
+       
     }
 }

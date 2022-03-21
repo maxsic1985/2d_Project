@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ProtectorAI : IProtector
 {
-    private readonly PlayerProvider _view;
+    private readonly PlayerProvider _playerview;
     private readonly PatrolAIModel _model;
     private readonly AIDestinationSetter _destinationSetter;
     private readonly AIPatrolPath _patrolPath;
@@ -12,7 +12,7 @@ public class ProtectorAI : IProtector
 
     public ProtectorAI(PlayerProvider view, PatrolAIModel model, AIDestinationSetter destinationSetter, AIPatrolPath patrolPath)
     {
-        _view = view;
+        _playerview = view;
         _model = model;
         _destinationSetter = destinationSetter;
         _patrolPath = patrolPath;
@@ -32,9 +32,8 @@ public class ProtectorAI : IProtector
 
     private void OnTargetReached()
     {
-        _destinationSetter.target = _isPatrolling
-            ? _model.GetNextTarget()
-            : _model.GetClosestTarget(_view.transform.position);
+        if (_destinationSetter.target == _isPatrolling)
+            _model.GetNextTarget();
     }
 
     public void StartProtection(GameObject invader)
@@ -46,6 +45,6 @@ public class ProtectorAI : IProtector
     public void FinishProtection(GameObject invader)
     {
         _isPatrolling = true;
-        _destinationSetter.target = _model.GetClosestTarget(_view.transform.position);
+        _destinationSetter.target = _model.GetClosestTarget(_playerview.transform.position);
     }
 }

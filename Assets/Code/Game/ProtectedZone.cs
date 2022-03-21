@@ -26,6 +26,7 @@ public class ProtectedZone
 
     private void OnContact(GameObject playerProvider)
     {
+      
         foreach (var protector in _protectors)
             protector.StartProtection(playerProvider);
     }
@@ -33,6 +34,7 @@ public class ProtectedZone
     private void OnExit(GameObject playerProvider)
     {
         foreach (var protector in _protectors)
-                protector.FinishProtection(playerProvider);
+            protector.FinishProtection(playerProvider);
+        
     }
 }

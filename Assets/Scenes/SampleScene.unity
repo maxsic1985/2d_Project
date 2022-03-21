@@ -415,7 +415,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -706,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &400049500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1692,9 +1724,9 @@ MonoBehaviour:
   - {fileID: 1973275544}
   - {fileID: 1547159766}
   _deathZones:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1620866823}
+  - {fileID: 1374802420}
+  - {fileID: 1909510211}
   - {fileID: 2081735158}
   _winZones:
   - {fileID: 989060255}
@@ -2112,6 +2144,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4686889780677431870, guid: 70d4f3541aad30546b06cd770e249f86, type: 3}
   m_PrefabInstance: {fileID: 4686889780740142002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1374802420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 313309320, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
+  m_PrefabInstance: {fileID: 2106369489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3b0c1133be26f439bd83abed1f6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1481440249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8149776385806693727, guid: 0457cb47834afb2419918f212097eb86, type: 3}
@@ -2435,6 +2478,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620866823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 313309320, guid: c311196eeb57adf45a693f2ac9775709, type: 3}
+  m_PrefabInstance: {fileID: 7462581140560420978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3b0c1133be26f439bd83abed1f6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630974499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,6 +2946,17 @@ Transform:
   m_Father: {fileID: 729980485}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1909510211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8713851396571919397, guid: 1465ddf8b7e264e42be45a7801259f0b, type: 3}
+  m_PrefabInstance: {fileID: 8713851395880503521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3b0c1133be26f439bd83abed1f6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1930084566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,6 +3548,42 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: enableRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: slowdownDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: endReachedDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: constrainInsideGraph
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: autoRepath.sensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: whenCloseToDestination
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: autoRepath.maximumInterval
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568898, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: autoRepath.visualizeSensitivity
       value: 0
       objectReference: {fileID: 0}
@@ -3492,11 +3593,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358216077915568899, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.295
+      value: 4.115
       objectReference: {fileID: 0}
     - target: {fileID: 1358216077915568899, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.332
+      value: -0.359
       objectReference: {fileID: 0}
     - target: {fileID: 1358216077915568899, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3529,6 +3630,14 @@ PrefabInstance:
     - target: {fileID: 1358216077915568899, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568902, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: startEndModifier.addPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358216077915568902, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
+      propertyPath: startEndModifier.exactEndPoint
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1358216077915568903, guid: e1d83ea8d69e2cf4ca46881e1cddf0e7, type: 3}
       propertyPath: target
