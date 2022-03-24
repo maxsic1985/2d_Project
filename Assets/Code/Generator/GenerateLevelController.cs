@@ -53,9 +53,9 @@ public class GenerateLevelController
         if (_map == null) throw new NullReferenceException($"map is null");
    
 
-        for (int x = 0; x < _mapWeight - 1; x++)
+        for (int x = 0; x <= _mapWeight - 1; x++)
         {
-            for (int y = 0; y < _mapHeight - 1; y++)
+            for (int y = 0; y <= _mapHeight - 1; y++)
             {
                 var positionTile = new Vector3Int(-_mapWeight / 2 + x, -_mapHeight / 2 + y, 0);
                 if (_map[x, y] == 1)
@@ -124,9 +124,9 @@ public class GenerateLevelController
     private void RandomFillLevel()
     {
         var psevdoRandom = new System.Random();
-        for (int x = 0; x < _mapWeight-1; x++)
+        for (int x = 0; x <= _mapWeight-1; x++)
         {
-            for (int y = 0; y < _mapHeight-1; y++)
+            for (int y = 0; y <= _mapHeight-1; y++)
             {
                 if (x == 0 || x == _mapWeight - 1 || y == 0 || y == _mapHeight-1)
                 {
