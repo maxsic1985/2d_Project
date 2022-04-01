@@ -7,6 +7,7 @@ public class GenerateLevelController
     private const int CountWall = 4;
     public const string TileMapName = nameof(_tileMap);
     public const string TileGroundName= nameof(_tileGround);
+    public const string TileIceName = nameof(_tileIce);
     public const string MapWeightName = nameof(_mapWeight);
     public const string MapHeightName = nameof(_mapHeight);
     public const string FactorSmoothName = nameof(_factorSmooth);
@@ -14,6 +15,8 @@ public class GenerateLevelController
 
     private Tilemap _tileMap;
     private Tile _tileGround;
+    private Tile _tileIce;
+
     private int _mapWeight;
     private int _mapHeight;
     private int _factorSmooth;
@@ -26,6 +29,8 @@ public class GenerateLevelController
     {
         _tileMap = levelView.TileMap;
         _tileGround = levelView.TileGround;
+        _tileIce = levelView.TileIce;
+
         _mapWeight = levelView.MapWeight;
         _mapHeight = levelView.MapHeight;
         _factorSmooth = levelView.FactorSmooth;
@@ -45,14 +50,30 @@ public class GenerateLevelController
         }
 
         DrawTileOnMap();
+        DrawIce();
+    }
 
+    private void DrawIce()
+    {
+        if (_map == null) throw new NullReferenceException($"map is null");
+
+        for (int x = 2; x <= _mapWeight/4; x++)
+        {
+            for (int y = 0; y <1; y++)
+            {
+                var positionTile = new Vector3Int(-_mapWeight / 2 + x, -_mapHeight / 2 + y, 0);
+                if (_map[x, y] == 1)
+                {
+                    _tileMap.SetTile(positionTile, _tileIce);
+                }
+            }
+        }
     }
 
     private void DrawTileOnMap()
     {
         if (_map == null) throw new NullReferenceException($"map is null");
    
-
         for (int x = 0; x <= _mapWeight - 1; x++)
         {
             for (int y = 0; y <= _mapHeight - 1; y++)

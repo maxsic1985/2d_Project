@@ -18,11 +18,12 @@ public class GeneratorlevelEditor : Editor
 
         var tileMap = serializedObject.FindProperty(GenerateLevelController.TileMapName);
         var tileGround = serializedObject.FindProperty(GenerateLevelController.TileGroundName);
+        var tileIce = serializedObject.FindProperty(GenerateLevelController.TileIceName);
         var mapWeight = serializedObject.FindProperty(GenerateLevelController.MapWeightName);
         var mapHeight = serializedObject.FindProperty(GenerateLevelController.MapHeightName);
         var smoothFactor = serializedObject.FindProperty(GenerateLevelController.FactorSmoothName);
         var fillPercent = serializedObject.FindProperty(GenerateLevelController.RandomFillPercentName);
-
+        ;
 
         if (GUI.Button(new Rect(10, 0, 100, 30), "Generate Map"))
         {
@@ -38,11 +39,11 @@ public class GeneratorlevelEditor : Editor
         GUILayout.Space(100);
         EditorGUILayout.PropertyField(tileMap);
         EditorGUILayout.PropertyField(tileGround);
+        EditorGUILayout.PropertyField(tileIce);
         EditorGUILayout.PropertyField(mapWeight);
         EditorGUILayout.PropertyField(mapHeight);
         EditorGUILayout.PropertyField(smoothFactor);
         EditorGUILayout.PropertyField(fillPercent);
-
         serializedObject.ApplyModifiedProperties();
     }
 }
