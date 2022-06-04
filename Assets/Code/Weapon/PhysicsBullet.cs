@@ -7,9 +7,7 @@ public class PhysicsBullet
     {
         _view = view;
     }
-
     public BulletProvider View => _view;
-
     public void Throw(Vector3 position, Vector3 velocity)
     {
         View.gameObject.SetActive(true);
@@ -18,9 +16,8 @@ public class PhysicsBullet
         View.Rigidbody2D.angularVelocity = 0;
         View.Rigidbody2D.AddForce(velocity, ForceMode2D.Impulse);
     }
-
     public void Update(ObjectPool bulletPool)
     {
-       
+
     }
 }

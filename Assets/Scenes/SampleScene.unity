@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Level1: {fileID: 8890443804332611571, guid: 1568703c5771203428d5f5a60d505201, type: 3}
+  _generator: {fileID: 4409261156202653860, guid: f2b7992e117f94442938bb1f9b293104, type: 3}
   _camera: {fileID: 334323158}
   root: {fileID: 839828795}
   _viewMenu: {fileID: 92551485}
@@ -580,7 +581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334323156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

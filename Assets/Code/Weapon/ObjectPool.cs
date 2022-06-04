@@ -8,7 +8,6 @@ public class ObjectPool
     private readonly Transform _rootTransform;
     private readonly int _poolCnt;
     public int PoolCnt => _poolCnt;
-
     public ObjectPool(GameObject prefab, int poolCnt)
     {
         _poolCnt = poolCnt;
@@ -16,17 +15,15 @@ public class ObjectPool
         _rootTransform = new GameObject($"[{_prefab.name}]").transform;
         Initialise(poolCnt);
     }
-
     private void Initialise(int poolCnt)
     {
         for (int i = 0; i < poolCnt; i++)
         {
             var go = GameObject.Instantiate(_prefab);
-            go.name = _prefab.name+i;
+            go.name = _prefab.name + i;
             Push(go);
         }
     }
-
     public GameObject Pop()
     {
         GameObject gameObject;
@@ -42,7 +39,6 @@ public class ObjectPool
         gameObject.transform.SetParent(null);
         return gameObject;
     }
-
     public void Push(GameObject gameObject)
     {
         gameObject.transform.SetParent(_rootTransform);

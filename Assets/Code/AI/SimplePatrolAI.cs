@@ -10,7 +10,6 @@ public class SimplePatrolAI
         _view = view;
         _model = model;
     }
-
     public void FixedUpdate()
     {
         _view.Rigidbody.velocity = _model.CalculateVelocity(_view.transform.position) * Time.fixedDeltaTime;

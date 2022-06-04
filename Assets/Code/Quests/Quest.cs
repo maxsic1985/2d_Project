@@ -6,22 +6,17 @@ public class Quest : IQuest, IDisposable
     private readonly IQuestModel _model;
 
     private bool _active;
-
-    public bool IsCompleted {get; private set;}
-
+    public bool IsCompleted { get; private set; }
     public event Action<IQuest> Completed;
-
     public Quest(QuestObjectView view, IQuestModel model)
     {
         _view = view;
         _model = model;
     }
-
     public void Dispose()
     {
         _view.OnLevelObjectContact -= OnContact;
     }
-
     public void Reset()
     {
         if (_active)
@@ -32,7 +27,6 @@ public class Quest : IQuest, IDisposable
         _view.OnLevelObjectContact += OnContact;
         _view.ProcessActivate();
     }
-
     private void OnContact(PlayerProvider characterView)
     {
         var completed = _model.TryComplete(characterView.gameObject);
@@ -40,7 +34,6 @@ public class Quest : IQuest, IDisposable
         if (completed)
             Complete();
     }
-
     private void Complete()
     {
         if (!_active)

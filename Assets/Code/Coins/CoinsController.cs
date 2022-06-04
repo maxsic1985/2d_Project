@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class CoinsController : IDisposable, IExecute
 {
@@ -35,13 +33,11 @@ public class CoinsController : IDisposable, IExecute
     {
         _characterView.OnLevelObjectContact -= OnLevelObjectContact;
     }
-
     public void Execute(float deltaTime)
     {
         if (_coinViews.Count == 0)
             GenerateCOins();
     }
-
     private void GenerateCOins()
     {
         ClearCoinsList();

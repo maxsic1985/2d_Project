@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameInitialisation
 {
     private Controllers _controllers;
-
     public GameInitialisation(Controllers controllers,
                               Camera camera,
                               Transform background,
@@ -25,7 +24,6 @@ public class GameInitialisation
                               Transform[] protectorWaypoints)
     {
         _controllers = controllers;
-
 
         var paralaxManager = new ParalaxController(camera, background.transform);
         var spriteAnimator = new SpriteAnimatorController(spriteAnimationConfig);
@@ -53,10 +51,5 @@ public class GameInitialisation
         _controllers.Add(bulletController);
         _controllers.Add(coinsController);
         _controllers.Add(levelZone);
-
-
-
-
-
     }
 }

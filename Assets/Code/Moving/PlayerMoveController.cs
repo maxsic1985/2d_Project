@@ -3,16 +3,13 @@ using UnityEngine;
 public class PlayerMoveController : IExecute
 {
     private float _yVelocity;
-
     private PlayerProvider _characterView;
     private SpriteAnimatorController _spriteAnimator;
-
     public PlayerMoveController(PlayerProvider characterView, SpriteAnimatorController spriteAnimator)
     {
         _characterView = characterView;
         _spriteAnimator = spriteAnimator;
     }
-
     public void Execute(float deltaTime)
     {
         var doJump = Input.GetAxis(GameConstants.Vertical) > 0;
@@ -51,21 +48,18 @@ public class PlayerMoveController : IExecute
 
         _characterView.transform.position += Vector3.up * (Time.deltaTime * _yVelocity);
     }
-
     private void MovementCharacter()
     {
         _characterView.transform.position = _characterView.transform.position.Change(y: _characterView.PlayerGroundLevel);
-      
-    }
 
+    }
     private bool IsGrounded()
     {
         return _characterView.transform.position.y <= _characterView.PlayerGroundLevel && _yVelocity <= 0;
     }
-
     private void GoSideWay(float xAxisInput)
     {
-      
+
         _characterView.transform.position += Vector3.right * (Time.deltaTime * _characterView.PlayerWalkSpeed * (xAxisInput < 0 ? -1 : 1));
         _characterView.SpriteRenderer.flipX = xAxisInput < 0;
         var bg = GameObject.FindObjectOfType<BackGroundController>();

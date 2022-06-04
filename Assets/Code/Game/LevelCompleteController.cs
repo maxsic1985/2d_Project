@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class LevelCompleteController : IDisposable, IInitialisation
 {
-
     private Vector3 _startPosition;
     private PlayerProvider _characterView;
     private List<LevelObjectView> _deathZones;
@@ -34,7 +31,6 @@ public class LevelCompleteController : IDisposable, IInitialisation
             Debug.LogError($"Yoy Win");
         }
     }
-
     private void GetDamage(ref LevelObjectView contactView)
     {
         if (_characterView.PlayerLive <= 1)
@@ -49,20 +45,17 @@ public class LevelCompleteController : IDisposable, IInitialisation
 
         }
     }
-
     private void GetDeath(LevelObjectView contactView)
     {
 
         Debug.LogError($"Yoy killed by {contactView.gameObject.name}");
         Application.LoadLevel(Application.loadedLevel);
     }
-
     public void Dispose()
     {
         _characterView.OnLevelObjectContact -= OnLevelObjectContact;
 
     }
-
     public void Initialization()
     {
 

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPhysicsMoveController : IFixedExecute
 {
     private const string Horizontal = nameof(Horizontal);
     private const string Vertical = nameof(Vertical);
-
     private PlayerProvider _characterView;
     private SpriteAnimatorController _spriteAnimator;
     private ContactsPoller _contactsPoller;
@@ -19,12 +16,10 @@ public class PlayerPhysicsMoveController : IFixedExecute
         _backGroundController = backGroundController;
         _contactsPoller = new ContactsPoller(characterView.Collider);
     }
-
     public void FixedExecute(float fixedDeltaTime)
     {
         PlayerMove();
     }
-
     public void PlayerMove()
     {
         var doJump = Input.GetAxis(Vertical) > 0;
@@ -36,7 +31,7 @@ public class PlayerPhysicsMoveController : IFixedExecute
 
         if (isGoSideWay)
             _characterView.SpriteRenderer.flipX = xAxisInput < 0;
-     
+
         _backGroundController.MoveBackGround(_characterView.transform);
 
 

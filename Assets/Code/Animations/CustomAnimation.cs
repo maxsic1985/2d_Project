@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
 public class CustomAnimation:IExecute
 {
     public AnimationType AnimType;
@@ -28,7 +27,6 @@ public class CustomAnimation:IExecute
             Sleeps = true;
         }
     }
-
 
     public void Update()
     {

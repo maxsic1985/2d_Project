@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerLiveDisplay
@@ -14,10 +11,8 @@ public class PlayerLiveDisplay
             _liveImages[i].enabled = true;
         }
     }
-
     public void UpdatePlayerLife(int value)
     {
         _liveImages[value - 1].enabled = false;
     }
-
 }

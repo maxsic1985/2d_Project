@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
 public class ProtectedZone
 {
     private readonly List<IProtector> _protectors;

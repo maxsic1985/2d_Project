@@ -4,13 +4,11 @@ public class PatrolAIModel
 {
     private readonly Transform[] _waypoints;
     private int _currentPointIndex;
-
     public PatrolAIModel(Transform[] waypoints)
     {
         _waypoints = waypoints;
         _currentPointIndex = 0;
     }
-
     public Transform GetNextTarget()
     {
         if (_waypoints == null)
@@ -19,7 +17,6 @@ public class PatrolAIModel
         _currentPointIndex = (_currentPointIndex + 1) % _waypoints.Length;
         return _waypoints[_currentPointIndex];
     }
-
     public Transform GetClosestTarget(Vector2 fromPosition)
     {
         if (_waypoints == null)

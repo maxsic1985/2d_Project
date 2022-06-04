@@ -1,17 +1,14 @@
-
 using UnityEngine;
 
 public sealed class FollowToPlayer : MonoBehaviour
 {
-   Transform _player;
+    Transform _player;
     void Start()
     {
-        _player =FindObjectOfType<PlayerProvider>().transform;
+        _player = FindObjectOfType<PlayerProvider>().transform;
     }
-
-  
     void LateUpdate()
     {
-     transform.position= transform.position.Change(x: _player.position.x);
+        transform.position = transform.position.Change(x: _player.position.x);
     }
 }

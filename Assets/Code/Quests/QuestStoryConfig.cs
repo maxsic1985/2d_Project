@@ -7,7 +7,6 @@ public class QuestStoryConfig : ScriptableObject
     public QuestStoryType QuestStoryType;
 
 }
-
 public enum QuestStoryType
 {
     Common,

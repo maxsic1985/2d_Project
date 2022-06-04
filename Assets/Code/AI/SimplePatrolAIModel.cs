@@ -11,7 +11,6 @@ public class SimplePatrolAIModel
         _config = config;
         _target = GetNextWaypoint();
     }
-
     public Vector2 CalculateVelocity(Vector2 fromPosition)
     {
         var distance = Vector2.Distance(_target.position, fromPosition);
@@ -22,7 +21,6 @@ public class SimplePatrolAIModel
         var direction = ((Vector2)_target.position - fromPosition).normalized;
         return _config.Speed * direction;
     }
-
     private Transform GetNextWaypoint()
     {
         _currentPointIndex = (_currentPointIndex + 1) % _config.Waypoints.Length;

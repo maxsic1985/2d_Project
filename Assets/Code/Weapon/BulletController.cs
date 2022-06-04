@@ -12,7 +12,6 @@ public class BulletController : IExecute
     private readonly PlayerProvider _playerProvider;
     private float _shootDistance;
     private Dictionary<CannonProvider, float> _gunsDictionary = new Dictionary<CannonProvider, float>();
-
     public BulletController(ObjectPool bulletPool, List<CannonProvider> guns)
     {
         _playerProvider = GameObject.FindObjectOfType<PlayerProvider>();
@@ -49,7 +48,7 @@ public class BulletController : IExecute
         {
             if (Vector2.Distance(_bullets[i].transform.position, _playerProvider.transform.position) > _shootDistance)
             {
-                _bulletPool.Push( _bullets[i].gameObject);
+                _bulletPool.Push(_bullets[i].gameObject);
                 _bullets.RemoveAt(i);
             }
         }

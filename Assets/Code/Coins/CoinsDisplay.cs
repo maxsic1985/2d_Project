@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.UI;
 
 public class CoinsDisplay 
@@ -9,11 +8,8 @@ public class CoinsDisplay
     {
         _ScoreCoinsText = text;
     }
-
     public void UpdateScore(int value)
     {
         _ScoreCoinsText.text = value.ToString();
     }
-   
-
 }

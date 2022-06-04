@@ -36,18 +36,15 @@ public class SpriteAnimatorController:IExecute
             });
         }
     }
-
     public void StopAnimation(SpriteRenderer sprite)
     {
         if (_activeAnimations.ContainsKey(sprite))
             _activeAnimations.Remove(sprite);
     }
-
     public void Dispose()
     {
         _activeAnimations.Clear();
     }
-
     public void Execute(float deltaTime)
     {
         foreach (var animation in _activeAnimations)
