@@ -55,7 +55,6 @@ public class CoinsController : IDisposable, IExecute
 
 
     }
-
     private void ClearCoinsList()
     {
         for (int i = 0; i < _coinViews.Count; i++)
