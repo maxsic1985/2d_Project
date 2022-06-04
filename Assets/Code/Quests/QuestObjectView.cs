@@ -25,9 +25,8 @@ public class QuestObjectView : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-         collider.gameObject.TryGetComponent<PlayerProvider>(out PlayerProvider player );
-        if (player is null) return;
-        OnLevelObjectContact?.Invoke(player);
+        if (collider.gameObject.TryGetComponent(out PlayerProvider player))
+            OnLevelObjectContact?.Invoke(player);
     }
 
     public void ProcessComplete()

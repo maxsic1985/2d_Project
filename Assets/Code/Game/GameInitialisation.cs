@@ -7,8 +7,6 @@ public class GameInitialisation
 {
     private Controllers _controllers;
 
-
-
     public GameInitialisation(Controllers controllers,
                               Camera camera,
                               Transform background,

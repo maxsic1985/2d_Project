@@ -79,8 +79,6 @@ public class Root : MonoBehaviour
         _controllers.FixedExecute(Time.fixedDeltaTime);
     }
 
-
-
     private void OnDestroy()
     {
         _controllers.Cleanup();
